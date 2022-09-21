@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+
+<html xmlns:th="https://www.thymeleaf.org">
+
+	<head>
+
+	</head>
+	<body>
+		<form action="/member/saved" th:object="${memberHTML}" method="POST">
+			<div class="row">
+			  	<div class="col">
+			  		<input th:field="${MemberEntities.memberHTML}" type="text" class="form-control" placeholder="First name" aria-label="First name">
+			  	</div>
+				<div class="col">
+			    	<input th:field="${MemberEntities.memberHTML}" type="text" class="form-control" placeholder="Last name" aria-label="Last name">
+				</div>
+			</div>
+			<div class="row">
+				<div class="col">
+					<button type="submit" class="btn btn-primary">Save</button>
+				</div>
+			</div>
+		</form>
+	</body>
+
+</html>
+		
