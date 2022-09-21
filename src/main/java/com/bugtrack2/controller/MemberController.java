@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.bugtrack2.dao.IMemberRepository;
@@ -23,6 +24,14 @@ public class MemberController {
 		
 		model.addAttribute("memberHTML", aMember);
 		
-		return "/member/new-member";
+		return "member/new-member";
+	}
+	
+	@PostMapping("/saved")
+	public String savedMember(Model model, MemberEntities aMember) {
+		
+		memRepo.save(aMember);
+		
+		return "redirect:/members/new";
 	}
 }
